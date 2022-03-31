@@ -14,7 +14,7 @@ require(synthdid)
 require(lfe)
 require(gridExtra)
 
-hello
+
 entities <- read.csv("nodes-entities.csv", header = T)
 intermediaries <- read.csv("nodes-intermediaries.csv", header = T)
 officers <- read.csv("nodes-officers.csv", header = T)
@@ -181,6 +181,7 @@ for (c in 1:length(lin_reg$Country)){
   lin_reg$TIEA_Error[c] <- sum_reg$coefficients[4]
   lin_reg$P_Value[c] <- format(round(sum_reg$coefficients[8], 12))
   lin_reg$Residual_Std_Error[c] <- sum_reg$sigma
+  lin_reg$Rsquared[c] <- sum_reg$r.squared
 }
 
 
