@@ -199,7 +199,6 @@ twoways <- plm(`Entities`~`TIEA`+ factor(`Jurisdiction`), data = combined.df,
                effect = 'twoways')
 
 phtest(random, felm)
-
 phtest(random, within)
 # How to interpret results?
 
@@ -454,7 +453,7 @@ closed_list <- as.vector(closed$Var1)
 lin_reg_closed <- data.frame("Country" = closed_list)
 
 for (c in 1:length(lin_reg_closed$Country)){
-  df <- all[[c]]
+  df <- all_closed[[c]]
   reg <- lm(Entities ~ TIEA, data = df)
   sum_reg <- summary(reg)
   lin_reg_closed$Intercept[c] <- format(round(reg$coefficients[1], 6))
@@ -470,7 +469,6 @@ for (c in 1:length(lin_reg_closed$Country)){
 
 no_tiea_inact <- intersect(no_tiea, inactive_jur$Var1)
 panel_control <- control(no_tiea_inact, inactivation)
-
 
 # Treatment = Bahamas
 did.inact_bahamas <- treatment(1, inactivation)
