@@ -14,7 +14,7 @@ require(synthdid)
 require(lfe)
 require(gridExtra)
 
-
+hello
 entities <- read.csv("nodes-entities.csv", header = T)
 intermediaries <- read.csv("nodes-intermediaries.csv", header = T)
 officers <- read.csv("nodes-officers.csv", header = T)
